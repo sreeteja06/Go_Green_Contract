@@ -131,6 +131,13 @@ contract Eco_Coin_Sale{
         UsersData[msg.sender].AmountOfKarmaGenrated = _karmaPoints;
         emit Sell(msg.sender, numberOfTokens);
     }
+
+    function getUserParticipation(address _user) public view returns(uint _WattsGenrated, uint _PlasticSold, uint _KarmaGenrated){
+        _WattsGenrated = UsersData[_user].AmountOfWattsGenrated;
+        _PlasticSold = UsersData[_user].AmountOfPlasticSold;
+        _KarmaGenrated = UsersData[_user].AmountOfKarmaGenrated;
+    }
+
     //ending the token sale
     function endSale() public restricted {
         require(tokenContract.transfer(admin, tokenContract.balanceOf(address(this))),"transfer the remaining tokens in the contract");

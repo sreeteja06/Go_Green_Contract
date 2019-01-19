@@ -1,0 +1,45 @@
+.main{
+		
+    background-color: white;
+    margin-left: 35%;
+    margin-top:5%;
+    height: 450px;
+    width:400px;
+    border-radius: 10px;
+
+}
+.round{
+    margin-left: 10px;
+    border-color: teal;
+    border-radius: 5px;
+    padding:5px;
+    margin-top:10px;
+}
+.round1{
+
+    margin-left: 190px;
+    border-color: teal;
+    border-radius: 5px;
+    padding:5px;
+    margin-top:10px;
+}
+.label{
+    margin-left: 35px;
+    font:20px;
+    float: center;
+    padding: 10px;
+}
+.round1:hover{
+    background-color: green;
+    opacity:0.8;
+
+}
+.round:hover{
+    opacity: 0.8;
+}
+.top{
+    margin-top: 10%;
+}
+.head{
+    text-align:center;
+}

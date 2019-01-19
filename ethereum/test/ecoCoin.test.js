@@ -38,4 +38,8 @@ describe("eco_coin", ()=>{
         assert.ok(eco_coin_contract.options.address);
         assert.ok(eco_coin_sale_contract.options.address);
     });
+    it("checks the balance", async()=>{
+        balance = await eco_coin_contract.methods.balanceOf(accounts[0]).call();
+        console.log(balance);
+    })
 })

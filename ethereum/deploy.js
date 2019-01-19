@@ -39,3 +39,6 @@ const deploy = async () => {
 };
 
 deploy();
+
+//the eco coin contract is deployed at: 0x6B3E3F65E2AF09B8246A3f52F57aE68a9cB1A22A
+// the eco coin sale contract is deployed at: 0x9310e9460e705fEAC3a632808ebc68B90d2048Dd

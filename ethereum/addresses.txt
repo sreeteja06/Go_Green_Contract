@@ -1,2 +1,2 @@
-the eco coin contract is deployed at: 0x6B3E3F65E2AF09B8246A3f52F57aE68a9cB1A22A
-the eco coin sale contract is deployed at: 0x9310e9460e705fEAC3a632808ebc68B90d2048Dd
+the eco coin contract is deployed at: 0xE92B7EcAdce3453A296Db27460eaf2F5E668E96b
+the eco coin sale contract is deployed at: 0xf1D9B02A3636b380B767F9536A8EC4746b5bD8A9
