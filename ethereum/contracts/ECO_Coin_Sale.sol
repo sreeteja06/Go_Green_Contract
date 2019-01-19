@@ -56,15 +56,23 @@ contract Eco_Coin{
 
 contract Eco_Coin_Sale{
 
+    struct UserDetails {
+        string name;
+        string deliveryAddress;
+        uint32 Mobile_number;
+        uint AmountOfWattsGenrated;
+        uint AmountOfPlasticSold;
+        uint AmountOfKarmaGenrated;
+        bool flag;
+    }
+    mapping (address=>UserDetails) UsersData;
     address payable admin;
     Eco_Coin public tokenContract;
     uint256 public tokenPriceForWatts;
     uint256 public tokenPriceForPlastic;
     uint256 public tokenPriceForKarma;
     uint256 public tokensSold;
-    mapping (address=>uint) AmountOfWattsGenrated;
-    mapping (address=>uint) AmountOfPlasticSold;
-    mapping (address=>uint) AmountOfKarmaGenrated;
+
     event Sell(address _buyer, uint _amount);
 
     constructor(Eco_Coin _tokenContract, uint256 _tokenPriceForWatts, uint256 _tokenPriceForPlastic, uint256 _tokenPriceForKarma) public {
@@ -73,6 +81,24 @@ contract Eco_Coin_Sale{
         tokenPriceForWatts = _tokenPriceForWatts;
         tokenPriceForPlastic = _tokenPriceForPlastic;
         tokenPriceForKarma = _tokenPriceForKarma;
+    }
+
+    function doesUserExist() public view returns (bool) {
+        return UsersData[msg.sender].flag;
+    }
+
+    function getUserDetails() public view returns (string memory _name, string memory _deliveryAddress, uint32 _mobileNumber){
+        require(doesUserExist());
+        _name = UsersData[msg.sender].name;
+        _deliveryAddress = UsersData[msg.sender].deliveryAddress;
+        _mobileNumber = UsersData[msg.sender].Mobile_number;
+    }
+
+    function setUserDetails(string memory _name, string memory _deliveryAddress, uint32 _mobileNumber) public returns (bool){
+        UsersData[msg.sender].name = _name;
+        UsersData[msg.sender].deliveryAddress = _deliveryAddress;
+        UsersData[msg.sender].Mobile_number = _mobileNumber;
+        UsersData[msg.sender].flag = true;
     }
 
     function multiply(uint x, uint y) internal pure returns (uint z){
@@ -84,7 +110,7 @@ contract Eco_Coin_Sale{
         require(tokenContract.balanceOf(address(this)) >= numberOfTokens, "checks wheather the smart contract has enough tokens");
         require(tokenContract.transfer(msg.sender, numberOfTokens), "Requires the transaction to be successfull");
         tokensSold += numberOfTokens;
-        AmountOfWattsGenrated[msg.sender] += _wattsGenerated;
+        UsersData[msg.sender].AmountOfWattsGenrated = _wattsGenerated;
         emit Sell(msg.sender, numberOfTokens);
     }
 
@@ -93,7 +119,7 @@ contract Eco_Coin_Sale{
         require(tokenContract.balanceOf(address(this)) >= numberOfTokens, "checks wheather the smart contract has enough tokens");
         require(tokenContract.transfer(msg.sender, numberOfTokens), "Requires the transaction to be successfull");
         tokensSold += numberOfTokens;
-        AmountOfPlasticSold[msg.sender] += _plasticSold;
+        UsersData[msg.sender].AmountOfPlasticSold = _plasticSold;
         emit Sell(msg.sender, numberOfTokens);
     }
     
@@ -102,7 +128,7 @@ contract Eco_Coin_Sale{
         require(tokenContract.balanceOf(address(this)) >= numberOfTokens, "checks wheather the smart contract has enough tokens");
         require(tokenContract.transfer(msg.sender, numberOfTokens), "Requires the transaction to be successfull");
         tokensSold += numberOfTokens;
-        AmountOfKarmaGenrated[msg.sender] += _karmaPoints;
+        UsersData[msg.sender].AmountOfKarmaGenrated = _karmaPoints;
         emit Sell(msg.sender, numberOfTokens);
     }
     //ending the token sale
@@ -116,3 +142,4 @@ contract Eco_Coin_Sale{
         _;
     }
 }
+
