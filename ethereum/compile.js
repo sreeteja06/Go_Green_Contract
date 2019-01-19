@@ -36,7 +36,7 @@ fs.ensureDir(buildPath);
 
 output = JSON.parse(output);
 
-// fs.writeFileSync(path.resolve(buildPath,"temp.json"),JSON.stringify(output, null, 2));
+fs.writeFileSync(path.resolve(buildPath,"temp.json"),JSON.stringify(output, null, 2));
 
 for( let contract in output.contracts["ECO_Coin_Sale"] ){
     fs.outputJSONSync(
