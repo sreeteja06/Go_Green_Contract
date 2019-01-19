@@ -1,4 +1,8 @@
-.main{
+html{
+    color: blue;
+}
+
+/* .main{
 		
     background-color: white;
     margin-left: 35%;
@@ -42,4 +46,4 @@
 }
 .head{
     text-align:center;
-}
+} */

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import eco_sale_Contract from "../ethereum/eco_sale_contract";
 import eco_coin_Contract from "../ethereum/eco_coin_contract";
 import web3 from "../ethereum/web3";
+import 'semantic-ui-css/semantic.min.css';
 
 class Index extends Component {
   accounts = [];

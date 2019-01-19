@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
-var ReactDOMServer = require('react-dom/server');
-var HtmlToReactParser = require('html-to-react').Parser;
-import './registration.css';
- 
-var htmlInput = '<div><h1>Title</h1><p>A paragraph</p></div>';
-var htmlToReactParser = new HtmlToReactParser();
-var reactElement = htmlToReactParser.parse(htmlInput);
+
+import { Form } from 'semantic-ui-react'
 // var reactHtml = ReactDOMServer.renderToStaticMarkup(reactElement);
+
 
 class registration extends Component {
     state = {  }
+    
     render() { 
-        return ( reactElement );
+        return ( 
+            <Form>
+          <Form.Group widths='equal'>
+            <Form.Input fluid label='Name' placeholder='Name' />
+            <Form.Input fluid label='Address' placeholder='Address' />
+            <Form.Input fluid label='Phone' placeholder='Phone' />
+          </Form.Group>
+        </Form>
+         );
     }
 }
  
