@@ -393,7 +393,10 @@ module.exports = function(webpackEnv) {
               test: cssRegex,
               exclude: cssModuleRegex,
               use: getStyleLoaders({
-                
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                },
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
               }),
