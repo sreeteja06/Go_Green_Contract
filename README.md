@@ -15,4 +15,4 @@ go green motto.
 records and tamper them for the rewards this is where the blockchain plays the crucial
 role of providing immutability properties.
 6. This project is built on Ethereum -Smart contracts.
-7. This project is written in solidity language and html pages and Erc-20 tokens
+7. This project is written in solidity language and html pages and react library
